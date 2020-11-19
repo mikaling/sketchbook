@@ -1,0 +1,24 @@
+# processing's default folders
+examples
+libraries
+modes
+templates
+tools
+
+# input/output files and folders
+input
+input.*
+out
+out.*
+output
+*.tmp
+*.*.tmp
+*.mov
+*.mp4
+*.m4v
+*.tiff
+*.png
+*.jpg
+*.jpeg
+
+private
