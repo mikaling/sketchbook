@@ -11,6 +11,7 @@ input.*
 out
 out.*
 output
+select
 *.tmp
 *.*.tmp
 *.mov
