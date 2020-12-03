@@ -18,8 +18,8 @@ select
 *.mp4
 *.m4v
 *.tiff
-*.png
-*.jpg
-*.jpeg
+#*.png
+#*.jpg
+#*.jpeg
 
 private
