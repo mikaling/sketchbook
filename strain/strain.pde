@@ -3,7 +3,7 @@ float oRadius = 900/2.5;
 int numPoints = 50;
 float angle = TWO_PI / (float)numPoints;
 
-int numDots = 75;
+int numDots = 100;
 int squareFillMax = 200;
 int squareFillMin = 100;
 
@@ -21,7 +21,7 @@ int coin;
 Dot[] dots = new Dot[numDots];
 
 // Create Squares
-Square[][] squares = new Square[10][10];
+Square[][] squares = new Square[20][20];
 
 void setup(){
   size(900, 900);
@@ -39,12 +39,13 @@ void setup(){
   // Initialize Squares
   int squareX = -450;
   int squareY = -450;
-  for (int i = 0; i < 10; i++) {
-    for (int j = 0; j < 10; j++) {
+  for (int i = 0; i < 20; i++) {
+    squareX = -450;
+    for (int j = 0; j < 20; j++) {
       squares[i][j] = new Square(squareX, squareY);
-      squareY += 90;
+      squareX += 45;
     }
-    squareX += 90;
+    squareY += 45;
   }
 }
 
@@ -99,16 +100,11 @@ void reveal(){
   hideDuration = (int) random(45, 90);
   
   // Draw grid
-  for (int i = 0; i < 10; i++) {
-    for (int j = 0; j < 10; j++) {
-      squares[i][j].drawTile();
+  for (int i = 0; i < squares[0].length; i++) {
+    for (int j = 0; j < squares[0].length; j++) {
+      squares[i][j].update();
     }
   }
-  //for (int i = 0; i < 10; i++) {
-  //  for (int j = 0; j < 10; j++) {
-  //    squares[i][j].update();
-  //  }
-  //}
   
   noStroke();
   //rect(-width/2, -height/2, width, height); // background when in "hidden" state
@@ -149,14 +145,14 @@ void drawCurves(int stroke) {
 
 class Square {
   float sx, sy;
-  float size = 90;
+  float size = 45;
   int fill;
-  int inc;
+  int inc = 5;
   
   Square (float x, float y) {
     this.sx = x;
     this.sy = y;
-    fill = (int) random(120, 200);
+    fill = (int) random(160, 240);
   }
   
   void drawTile() {
@@ -167,11 +163,11 @@ class Square {
   
   void update () {
     if (fill > squareFillMax) {
-      inc = -20;
+      inc = -5;
     }
     
     if (fill < squareFillMin) {
-      inc = 20;
+      inc = 5;
     }
     
     noStroke();
