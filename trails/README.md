@@ -2,4 +2,4 @@
 
 Experimenting with trailing lines on a slowly changing background.
 
-![preview](images/out.gif)
+![preview](images/preview.gif)
